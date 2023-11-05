@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thông tin bệnh nhân</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function getPatientInfo() {
+            var patientId = $("#patientId").val();
+            $.ajax({
+                url: "/api/patients/" + patientId,
+                type: "GET",
+                success: function (data) {
+                    $("#patientInfo").html(data);
+                },
+                error: function () {
+                    $("#patientInfo").html("Không tìm thấy bệnh nhân");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<h1>Thông tin bệnh nhân</h1>
+<label for="patientId">Mã bệnh nhân:</label>
+<input type="text" id="patientId" name="patientId">
+<button onclick="getPatientInfo()">Tìm kiếm</button>
+<div id="patientInfo"></div>
+</body>
+</html>

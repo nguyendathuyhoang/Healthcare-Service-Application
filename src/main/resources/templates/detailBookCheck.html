@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết đặt lịch khám</title>
+</head>
+<body>
+  <h2>Chi tiết đặt lịch khám</h2>
+  <label for="idDoctor">Bác sĩ khám</label>
+  <select id="idDoctor" name="idDoctor">
+    <option th:each="doctor:${doctors}" th:value="${doctor.idDoctor}" th:text="${doctor.name}"></option>
+  </select><br>
+  <label for="namePatient">Tên bệnh nhân</label>
+  <input type="text" id="namePatient" name="namePatient"><br>
+  <label for="dayExam">Ngày khám</label>
+  <input type="date" id="dayExam" name="dayExam"><br>
+  <label for="RequireExam">Yêu cầu khám</label>
+  <input type="text" id="RequireExam" name="RequireExam"><br>
+  <label for="conclusion">Kết luận</label>
+  <input type="text" name="conclusion" id="conclusion"><br>
+    <label for="listService">Danh sách dịch vụ</label>
+  <table id="listService">
+    <thead>
+    <tr>
+      <th>Tên dịch vụ</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="service:${services}">
+      <td th:value="serivce"></td>
+    </tr>
+    </tbody>
+  </table>
+<label for="chosenService">Danh sách dịch vụ bác sĩ chọn</label>
+  <table id="chosenService">
+    <thead>
+    <tr>
+      <td>Tên dịch vụ</td>
+      <td>Số lượng</td>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Tìm kiếm bệnh nhân</title>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--  <script>-->
+<!--    $(document).ready(function() {-->
+<!--      $("#patientId").keypress(function(event) {-->
+<!--        if (event.keyCode === 13) { // Kiểm tra nếu phím Enter được nhấn-->
+<!--          event.preventDefault(); // Ngăn chặn sự kiện mặc định của phím Enter-->
+<!--          searchPatient();-->
+<!--        }-->
+<!--      });-->
+
+<!--      function searchPatient() {-->
+<!--        var patientId = $("#patientId").val();-->
+
+<!--        $.ajax({-->
+<!--          url: "/getPatientName",-->
+<!--          type: "GET",-->
+<!--          data: { "patientId": patientId },-->
+<!--          success: function(data) {-->
+<!--            $("#patientName").val(data);-->
+<!--          }-->
+<!--        });-->
+<!--      }-->
+<!--    });-->
+<!--  </script>-->
+</head>
+<body>
+<h1>Tìm kiếm bệnh nhân</h1>
+<form action="/search" method="post" onsubmit="saveInputValue()" >
+<!--  <label for="patientId">ID bệnh nhân:</label>-->
+<!--  <input type="text" id="patientId" name="patientId"><br><br>-->
+
+  <label for="patientName">Tên bệnh nhân:</label>
+  <input type="submit" id="patientName" name="patientName" readonly th:value="${patient.getName()}"><br><br>
+  <button type="submit" hidden>Tìm</button>
+
+<!--  <p>Tên bệnh nhân:</p>-->
+<!--  <p th:text="${patient.getName()}"></p>-->
+</form>
+<!--  <label>Tên bệnh nhân:</label>-->
+<!--  <div th:if="${patient!=null}">-->
+<!--    <label>Tên bệnh nhân</label>-->
+<!--    <input th:value="${patient.name}">-->
+<!--  </div>-->
+
+<!--  <script>-->
+<!--    document.getElementById('patientId').value = localStorage.getItem('patientId');-->
+
+<!--    function saveInputValue()-->
+<!--    {-->
+<!--      const input = document.getElementById('patientId');-->
+<!--      localStorage.setItem('patientId', input.value);-->
+<!--    }-->
+<!--  </script>-->
+</body>
+</html>
